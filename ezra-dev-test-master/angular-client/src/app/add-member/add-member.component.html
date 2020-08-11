@@ -1,0 +1,49 @@
+<!--The div below will be displayed when the page is opened to add new member-->
+<div *ngIf="!edit">
+  <h1 align="center">Add Member</h1>
+  <div align="center">
+    <label>
+      Member Name:
+      <input #memberName />
+    </label>
+  </div>
+  <div align="center">
+    <label>
+      Member Email:
+      <input #memberEmail />
+    </label>
+  </div>
+  <div align="center">
+    <button *ngIf="!edit" class="btn btn-primary" (click)="addMember('',memberName.value, memberEmail.value )">
+      Add
+    </button>
+  </div>
+</div>
+
+<!--The div below will be displayed when the page is opened to edit existing member-->
+<div *ngIf="edit">
+  <h1 align="center">Edit Member</h1>
+  <div align="center">
+    <label>
+      Member Name:
+      <input [(ngModel)]="members.name">
+    </label>
+  </div>
+  <div align="center">
+    <label>
+      Member Email:
+      <input [(ngModel)]="members.email">
+    </label>
+  </div>
+  <div align="center">
+    <button class="btn btn-primary" (click)="updateMember()">
+      Update
+    </button>
+  </div>
+</div>
+
+
+
+
+
+
